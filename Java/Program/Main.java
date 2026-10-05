@@ -264,6 +264,29 @@ public class Main { // kelas utama program
         tampilkanPengguna(); // tampilkan daftar terbaru
     }
 
+    // ===================== DEMO POLIMORFISME (PENGGANTI MULTIPLE INHERITANCE) =====================
+    static void cetakKoneksi(KoneksiJaringan k) { // parameter bertipe INTERFACE: menerima objek apa pun yang meng-implements-nya
+        System.out.println("  Diterima sebagai KoneksiJaringan -> " + k.ringkasanJaringan()); // pakai default method interface
+    }
+
+    static void cetakPerangkat(PerangkatSistem p) { // parameter bertipe CLASS INDUK: menerima semua turunannya
+        System.out.println("  Diterima sebagai PerangkatSistem -> " + p.getNamaPerangkat() // pakai method class induk
+            + " (" + (p.getStatusPower() ? "ON" : "OFF") + ")"); // status power
+    }
+
+    static void demoPolimorfisme() { // tunjukkan satu objek berperan sebagai dua tipe induk
+        System.out.println("\n--- Demo Polimorfisme: Multiple Inheritance di Java ---"); // judul
+        System.out.println("Java tidak boleh 'extends' dua class, maka: class + interface."); // penjelasan singkat
+        if (daftarPerangkat.isEmpty()) throw new IllegalArgumentException("Belum ada perangkat."); // trigger: list kosong
+        for (SmartDevice d : daftarPerangkat) { // loop semua perangkat
+            System.out.println("\n[" + d.getClass().getSimpleName() + "] " + d.getNamaPerangkat()); // jenis asli objek (runtime)
+            cetakPerangkat(d); // upcast otomatis SmartDevice -> PerangkatSistem
+            cetakKoneksi(d); // upcast otomatis SmartDevice -> KoneksiJaringan
+            System.out.println("  instanceof PerangkatSistem: " + (d instanceof PerangkatSistem) // cek tipe induk class
+                + " | instanceof KoneksiJaringan: " + (d instanceof KoneksiJaringan)); // cek tipe interface
+        }
+    }
+
     // ===================== UBAH & HAPUS =====================
     static void ubahPerangkat() { // ubah pengaturan perangkat lewat setter
         System.out.println("\n--- Ubah Pengaturan Perangkat ---"); // judul
@@ -326,6 +349,7 @@ public class Main { // kelas utama program
         System.out.println(" 5. Tampilkan semua pengguna"); // menu 5
         System.out.println(" 6. Ubah pengaturan perangkat"); // menu 6
         System.out.println(" 7. Hapus perangkat"); // menu 7
+        System.out.println(" 8. Demo polimorfisme (multiple inheritance via interface)"); // menu 8 (khusus Java)
         System.out.println(" 0. Keluar"); // menu 0
     }
 
@@ -340,7 +364,7 @@ public class Main { // kelas utama program
             garis("TAHAP 2: MENU INTERAKTIF"); // judul tahap 2
             while (true) { // loop menu sampai user keluar
                 tampilMenu(); // tampilkan menu
-                int pilih = bacaIntRentang("Pilih menu (0-7): ", 0, 7); // baca pilihan (validasi angka & rentang)
+                int pilih = bacaIntRentang("Pilih menu (0-8): ", 0, 8); // baca pilihan (validasi angka & rentang)
                 if (pilih == 0) break; // 0 = keluar dari loop
                 try { // tangani error pada setiap aksi menu
                     switch (pilih) { // jalankan aksi sesuai nomor
@@ -351,6 +375,7 @@ public class Main { // kelas utama program
                         case 5: tampilkanPengguna(); break; // tampilkan pengguna
                         case 6: ubahPerangkat(); break; // ubah perangkat
                         case 7: hapusPerangkat(); break; // hapus perangkat
+                        case 8: demoPolimorfisme(); break; // demo polimorfisme
                     }
                 } catch (InputSelesai e) { // input habis
                     throw e; // teruskan ke handler luar

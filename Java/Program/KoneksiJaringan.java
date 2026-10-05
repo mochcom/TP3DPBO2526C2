@@ -1,5 +1,7 @@
 // Base Class 2 (berbentuk INTERFACE karena Java tidak mendukung multiple inheritance antar-class).
-// SmartDevice meng-extends PerangkatSistem dan meng-implements interface ini.
+// SmartDevice meng-extends PerangkatSistem dan meng-implements interface ini, sehingga SmartDevice
+// bisa diperlakukan sebagai PerangkatSistem MAUPUN KoneksiJaringan (polimorfisme, lihat Main.demoPolimorfisme).
+// Catatan: interface tidak bisa menyimpan atribut (state), jadi atribut jaringan dideklarasikan di SmartDevice.
 // Atribut: ipAddress, macAddress, protokol (disimpan di kelas yang mengimplementasikan)
 public interface KoneksiJaringan { // deklarasi interface
     String HEKSA = "0123456789abcdefABCDEF"; // konstanta: karakter heksadesimal sah
@@ -29,6 +31,11 @@ public interface KoneksiJaringan { // deklarasi interface
             }
         }
         return true; // valid
+    }
+
+    // Default method: perilaku siap pakai yang diwariskan ke semua kelas yang meng-implements interface ini
+    default String ringkasanJaringan() { // tidak perlu ditulis ulang di SmartDevice
+        return getIpAddress() + " | " + getMacAddress() + " | " + getProtokol(); // gabungkan IP, MAC, protokol
     }
 
     void setIpAddress(String ip); // wajib diimplementasikan: setter IP

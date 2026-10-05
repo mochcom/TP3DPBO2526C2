@@ -461,10 +461,14 @@ Transkrip sesi lengkap (menggunakan `input_demo.txt`, termasuk contoh input sala
 #### Sebelum INPUT
 ![Output Python](Python/dokumentasi/python1.png)
 #### Setelah INPUT
-![Output Python](Python/dokumentasi/python2.png)
+![Output Python](Python/dokumentasi/python2-1.png)
+![Output Python](Python/dokumentasi/python2-2.png)
 
 ### Java
 #### Sebelum INPUT
 ![Output Java](Java/dokumentasi/java1.png)
 #### Setelah INPUT
-![Output Java](Java/dokumentasi/java2.png)
+![Output Java](Java/dokumentasi/java2-1.png)
+![Output Java](Java/dokumentasi/java2-2.png)
+#### Demo Polimorfisme
+![Output Java](Java/dokumentasi/java3.png)
