@@ -57,7 +57,7 @@ Saya Moch Fadillah Pratama dengan NIM 2506968 mengerjakan Tugas Praktikum 3 dala
 | Python | `python main.py` |
 | Java | `javac *.java` lalu `java Main` |
 
-Program berjalan **interaktif** (menu bernomor). Untuk mencoba skenario lengkap termasuk input salah secara otomatis, tiap folder menyediakan `dokumentasi/input_demo.txt`, misalnya: `python main.py < dokumentasi/input_demo.txt`.
+Program berjalan **interaktif** (menu bernomor).
 
 ---
 
