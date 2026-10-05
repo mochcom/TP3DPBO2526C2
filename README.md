@@ -202,8 +202,10 @@ Method `...Valid()` bertanda `$` pada diagram adalah method **statis** untuk val
 
 ## Penjelasan Desain Program
 
-### 1. Multiple Inheritance
-`SmartDevice` mewarisi dua kelas induk sekaligus: `PerangkatSistem` (identitas & daya) dan `KoneksiJaringan` (jaringan). Dengan begitu sebuah perangkat pintar otomatis punya data fisik **dan** data jaringan.
+### 1. Multiple Inheritance & Adaptasi Java
+* **C++ & Python**: `SmartDevice` mewarisi dua kelas induk sekaligus (`PerangkatSistem` dan `KoneksiJaringan`).
+* **Java (Solusi Interface & Polimorfisme)**: Karena bahasa Java **tidak mendukung Multiple Inheritance antar-class** (untuk menghindari *Diamond Problem*), maka `PerangkatSistem` diimplementasikan sebagai kelas induk (`extends`), sedangkan `KoneksiJaringan` dibuat sebagai **`Interface`** yang diimplementasikan (`implements`) oleh `SmartDevice`.
+* **Penerapan Polimorfisme di Java**: Atribut jaringan disimpan di dalam `SmartDevice`, sementara metode interface `KoneksiJaringan` di-*override*. Hal ini memungkinkan objek `SmartDevice` tetap dapat diperlakukan secara **polimorfik** baik sebagai tipe `PerangkatSistem` maupun sebagai tipe interface `KoneksiJaringan`.
 
 ### 2. Hierarchical Inheritance
 `SmartDevice` diturunkan menjadi tiga kelas anak yang sejajar: `SmartLampu`, `SmartCCTV`, dan `SmartAC`. Keduanya memakai semua atribut `SmartDevice` lalu menambahkan atribut khusus masing-masing (kecerahan & warna untuk lampu, resolusi & status rekam untuk CCTV, suhu target & mode pendingin untuk AC).
@@ -221,9 +223,12 @@ Sensor adalah bagian yang tertanam dalam perangkat. Daur hidupnya terikat penuh 
 Semua perangkat disimpan dalam satu kumpulan bertipe `SmartDevice` (`vector<SmartDevice*>` di C++, `ArrayList<SmartDevice>` di Java, `list` di Python). Saat `displayInfo()` dipanggil, method yang berjalan adalah versi `SmartLampu`, `SmartCCTV`, atau `SmartAC` sesuai objek aslinya (lampu, CCTV, atau AC).
 
 ### Catatan perbedaan antarbahasa
-* **C++**: multiple inheritance langsung (`class SmartDevice : public PerangkatSistem, public KoneksiJaringan`).
-* **Python**: multiple inheritance langsung, konstruktor kedua induk dipanggil eksplisit. Visibilitas dengan konvensi `_` (protected) dan `__` (private).
-* **Java**: tidak mendukung multiple inheritance antar-class. `PerangkatSistem` tetap berupa class (`extends`), sedangkan `KoneksiJaringan` dibuat **interface** yang diimplementasikan `SmartDevice` (atribut jaringan disimpan di `SmartDevice`).
+* **C++**: Menggunakan *Multiple Inheritance* secara langsung (`class SmartDevice : public PerangkatSistem, public KoneksiJaringan`).
+* **Python**: Menggunakan *Multiple Inheritance* secara langsung, di mana konstruktor dari kedua kelas induk dipanggil secara eksplisit. Visibilitas atribut diatur dengan konvensi `_` (protected) dan `__` (private).
+* **Java**: Tidak mendukung *Multiple Inheritance* berbasis kelas. Oleh karena itu, Java memanfaatkan **Interface dan Polimorfisme**:
+  * `SmartDevice` melakukan `extends PerangkatSistem` untuk mewarisi struktur kelas fisik.
+  * `SmartDevice` melakukan `implements KoneksiJaringan` (di mana `KoneksiJaringan` bertindak sebagai *interface*).
+  * Dengan konsep ini, Java memanfaatkan **Polimorfisme berbasis Interface** agar `SmartDevice` tetap memiliki dua identitas tipe data sekaligus tanpa melanggar batasan bahasa Java.
 
 ---
 
