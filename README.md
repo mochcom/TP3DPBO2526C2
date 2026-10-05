@@ -448,9 +448,6 @@ Ada dua lapis pengaman: (1) fungsi input di `main` yang meminta ulang langsung, 
 ---
 
 ## Dokumentasi
-
-Transkrip sesi lengkap (menggunakan `input_demo.txt`, termasuk contoh input salah) tersimpan di folder `dokumentasi` masing-masing (`output_cpp.txt`, `output_python.txt`, `output_java.txt`). Screenshot:
-
 ### C++
 #### Sebelum INPUT
 ![Output C++](CPP/Dokumentasi/cpp1.png)
