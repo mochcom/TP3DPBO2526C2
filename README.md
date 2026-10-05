@@ -453,22 +453,22 @@ Transkrip sesi lengkap (menggunakan `input_demo.txt`, termasuk contoh input sala
 
 ### C++
 #### Sebelum INPUT
-![Output C++](CPP/dokumentasi/cpp1.png)
+![Output C++](CPP/Dokumentasi/cpp1.png)
 #### Setelah INPUT
-![Output C++](CPP/dokumentasi/cpp2.png)
+![Output C++](CPP/Dokumentasi/cpp2.png)
 
 ### Python
 #### Sebelum INPUT
-![Output Python](Python/dokumentasi/python1.png)
+![Output Python](Python/Dokumentasi/python1.png)
 #### Setelah INPUT
-![Output Python](Python/dokumentasi/python2-1.png)
-![Output Python](Python/dokumentasi/python2-2.png)
+![Output Python](Python/Dokumentasi/python2-1.png)
+![Output Python](Python/Dokumentasi/python2-2.png)
 
 ### Java
 #### Sebelum INPUT
-![Output Java](Java/dokumentasi/java1.png)
+![Output Java](Java/Dokumentasi/java1.png)
 #### Setelah INPUT
-![Output Java](Java/dokumentasi/java2-1.png)
-![Output Java](Java/dokumentasi/java2-2.png)
+![Output Java](Java/Dokumentasi/java2-1.png)
+![Output Java](Java/Dokumentasi/java2-2.png)
 #### Demo Polimorfisme
-![Output Java](Java/dokumentasi/java3.png)
+![Output Java](Java/Dokumentasi/java3.png)
