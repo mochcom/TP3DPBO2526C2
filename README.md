@@ -12,37 +12,40 @@ Saya Moch Fadillah Pratama dengan NIM 2506968 mengerjakan Tugas Praktikum 3 dala
 .
 ├── CPP/
 │   ├── dokumentasi/
-│   ├── PerangkatSistem.cpp
-│   ├── KoneksiJaringan.cpp
-│   ├── SensorInternal.cpp
-│   ├── Pengguna.cpp
-│   ├── SmartDevice.cpp
-│   ├── SmartLampu.cpp
-│   ├── SmartCCTV.cpp
-│   ├── SmartAC.cpp
-│   └── main.cpp
+│   └── program/
+│       ├── PerangkatSistem.cpp
+│       ├── KoneksiJaringan.cpp
+│       ├── SensorInternal.cpp
+│       ├── Pengguna.cpp
+│       ├── SmartDevice.cpp
+│       ├── SmartLampu.cpp
+│       ├── SmartCCTV.cpp
+│       ├── SmartAC.cpp
+│       └── main.cpp
 ├── JAVA/
 │   ├── dokumentasi/
-│   ├── PerangkatSistem.java
-│   ├── KoneksiJaringan.java      (interface)
-│   ├── SensorInternal.java
-│   ├── Pengguna.java
-│   ├── SmartDevice.java
-│   ├── SmartLampu.java
-│   ├── SmartCCTV.java
-│   ├── SmartAC.java
-│   └── Main.java
+│   └── program/
+│       ├── PerangkatSistem.java
+│       ├── KoneksiJaringan.java
+│       ├── SensorInternal.java
+│       ├── Pengguna.java
+│       ├── SmartDevice.java
+│       ├── SmartLampu.java
+│       ├── SmartCCTV.java
+│       ├── SmartAC.java
+│       └── Main.java
 ├── PYTHON/
 │   ├── dokumentasi/
-│   ├── PerangkatSistem.py
-│   ├── KoneksiJaringan.py
-│   ├── SensorInternal.py
-│   ├── Pengguna.py
-│   ├── SmartDevice.py
-│   ├── SmartLampu.py
-│   ├── SmartCCTV.py
-│   ├── SmartAC.py
-│   └── main.py
+│   └── program/
+│       ├── PerangkatSistem.py
+│       ├── KoneksiJaringan.py
+│       ├── SensorInternal.py
+│       ├── Pengguna.py
+│       ├── SmartDevice.py
+│       ├── SmartLampu.py
+│       ├── SmartCCTV.py
+│       ├── SmartAC.py
+│       └── main.py
 └── README.md
 ```
 
@@ -163,11 +166,15 @@ classDiagram
         +getModePendingin() string
         +modeValid(string)$ bool
     }
-    PerangkatSistem <|-- SmartDevice
-    KoneksiJaringan <|-- SmartDevice
-    SmartDevice <|-- SmartLampu
-    SmartDevice <|-- SmartCCTV
-    SmartDevice <|-- SmartAC
+
+    %% Relationships
+    PerangkatSistem <|-- SmartDevice : Multiple Inheritance
+    KoneksiJaringan <|-- SmartDevice : Multiple Inheritance
+
+    SmartDevice <|-- SmartLampu : Hierarchical Inheritance
+    SmartDevice <|-- SmartCCTV : Hierarchical Inheritance
+    SmartDevice <|-- SmartAC : Hierarchical Inheritance
+
     SmartDevice *-- SensorInternal : Composition
     SmartDevice o-- Pengguna : Aggregation
 ```
@@ -278,10 +285,19 @@ Ada dua lapis pengaman: (1) fungsi input di `main` yang meminta ulang langsung, 
 Transkrip sesi lengkap (menggunakan `input_demo.txt`, termasuk contoh input salah) tersimpan di folder `dokumentasi` masing-masing (`output_cpp.txt`, `output_python.txt`, `output_java.txt`). Screenshot:
 
 ### C++
-![Output C++](CPP/dokumentasi/cpp.png)
+#### Sebelum INPUT
+![Output C++](CPP/dokumentasi/cpp1.png)
+#### Setelah INPUT
+![Output C++](CPP/dokumentasi/cpp2.png)
 
 ### Python
-![Output Python](PYTHON/dokumentasi/python.png)
+#### Sebelum INPUT
+![Output Python](Python/dokumentasi/python1.png)
+#### Setelah INPUT
+![Output Python](Python/dokumentasi/python2.png)
 
 ### Java
-![Output Java](JAVA/dokumentasi/java.png)
+#### Sebelum INPUT
+![Output Java](Java/dokumentasi/java1.png)
+#### Setelah INPUT
+![Output Java](Java/dokumentasi/java2.png)
